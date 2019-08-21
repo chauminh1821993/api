@@ -1,0 +1,159 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "This is my website API for save and display phone",
+        "version": "1.0.0"
+    },
+    "host": "localhost/demo-api/public/api",
+    "basePath": "/",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/phones": {
+            "get": {
+                "tags": [
+                    "Phone"
+                ],
+                "summary": "Get a listing of the Phone.",
+                "description": "Get all Phones",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "description": "This function get list Phones",
+                                    "type": "string",
+                                    "enum": [
+                                        "OK",
+                                        "NG"
+                                    ],
+                                    "example": "OK"
+                                },
+                                "results": {
+                                    "description": "This function get list Phones",
+                                    "properties": {
+                                        "current_page": {
+                                            "description": "This function get list Phones",
+                                            "type": "number"
+                                        },
+                                        "data": {
+                                            "description": "This function get list Phones",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/Phone"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "description": "This function get list Phones",
+                                            "type": "string"
+                                        },
+                                        "from": {
+                                            "description": "This function get list Phones",
+                                            "type": "number"
+                                        },
+                                        "last_page": {
+                                            "description": "This function get list Phones",
+                                            "type": "number"
+                                        },
+                                        "last_page_url": {
+                                            "description": "This function get list Phones",
+                                            "type": "string"
+                                        },
+                                        "next_page_url": {
+                                            "description": "This function get list Phones",
+                                            "type": "string"
+                                        },
+                                        "path": {
+                                            "description": "This function get list Phones",
+                                            "type": "string"
+                                        },
+                                        "per_page": {
+                                            "description": "This function get list Phones",
+                                            "type": "number"
+                                        },
+                                        "prev_page_url": {
+                                            "description": "This function get list Phones",
+                                            "type": "string"
+                                        },
+                                        "to": {
+                                            "description": "This function get list Phones",
+                                            "type": "number"
+                                        },
+                                        "total": {
+                                            "description": "This function get list Phones",
+                                            "type": "number"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Phone"
+                ],
+                "summary": "Store a newly created Phone in storage",
+                "description": "Store Phone",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "formData",
+                        "description": "Phone that should be stored",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "OK",
+                                        "NG"
+                                    ],
+                                    "example": "OK"
+                                },
+                                "results": {
+                                    "$ref": "#/definitions/Phone"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Phone": {
+            "required": "{phone}",
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "phone": {
+                    "description": "phone",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('phones')->group(function () {
+    Route::get('/', 'PhoneController@index')->name('phone.index');
+    Route::post('/', 'PhoneController@store')->name('charge.store');
+});
